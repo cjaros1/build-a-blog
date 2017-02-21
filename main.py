@@ -17,26 +17,26 @@ class Handler(webapp2.RequestHandler):
 
 
 class MainPage(Handler):
-    def render_front(self, title="", art="", error=""):
-        arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC")
-        self.render("front.html", title=title, art=art, error = error, arts = arts)
+    def render_front(self, title="", entry="", error=""):
+        entries = db.GqlQuery("SELECT * FROM Blog ORDER BY created DESC")
+        self.render("front.html", title=title, entry=entry, error = error, entries = entries)
     def get(self):
         self.render_front()
     def post(self):
         title = self.request.get("title")
-        art = self.request.get("art")
-        if title and art:
-            a = Art(title = title, art = art)
-            a.put()
+        entry = self.request.get("entry")
+        if title and entry:
+            b = Blog(title = title, entry = entry)
+            b.put()
             self.redirect("/")
         else:
-            error = "we need both a title and some artwork!"
-            self.render_front(title, art, error)
+            error = "we need both a title and blog entry!"
+            self.render_front(title, entry, error)
 
 
-class Art(db.Model):
+class Blog(db.Model):
     title = db.StringProperty(required = True)
-    art = db.TextProperty(required = True)
+    entry = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
 
 
