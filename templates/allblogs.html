@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+  <title>Blogs</title>
+<head>
+<body>
+  <h1>Latest Blog Entries</h1>
+  <hr>
+  <br>
+  <br>
+
+{% for entry in entries %}
+
+<div class="blog">
+    <div class="blog-title">{{entry.title}}</div>
+    <pre class="blog-body">{{entry.entry}}</pre>
+</div>
+<br>
+<br>
+<br>
+{% endfor %}
+
+{% endblock %}

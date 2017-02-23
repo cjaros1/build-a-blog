@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+  <title>Blogs</title>
+<head>
+<body>
+  <h1>Latest Blog Entries</h1>
+  <hr>
+  <br>
+  <br>
+
+{% for i in range(5) %}
+
+<div class="blog">
+    <div class="blog-title">{{entries[i].title}}</div>
+    <pre class="blog-body">{{entries[i].entry}}</pre>
+</div>
+<br>
+<br>
+<br>
+{% endfor %}
+
+{% endblock %}
