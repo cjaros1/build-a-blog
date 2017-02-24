@@ -10,11 +10,13 @@
   <br>
   <br>
 
-{% for i in range(5) %}
+{% for entry in entries %}
 
 <div class="blog">
-    <div class="blog-title">{{entries[i].title}}</div>
-    <pre class="blog-body">{{entries[i].entry}}</pre>
+    <a href="/blog/{{entry.key().id()}}"><div class="blog-title">{{entry.title}}</div></a>
+    <pre class="blog-body">{{entry.entry}}</pre>
+    <br>
+    <div><em>-by {{entry.author}}</em></div>
 </div>
 <br>
 <br>

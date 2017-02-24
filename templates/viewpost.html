@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+  <title>Blog #{{entry.blogID}}</title>
+<head>
+<body>
+  <h1>Blog Entry {{entry.blogID}}</h1>
+  <hr>
+
+
+
+
+<div class="blog">
+    <div class="blog-title">{{entry.title}}</div>
+    <pre class="blog-body">{{entry.entry}}</pre>
+</div>
+
+
+{% endblock %}
